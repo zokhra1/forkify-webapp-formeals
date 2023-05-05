@@ -61,7 +61,7 @@ export default class View {
     const markup = `
     <div class="spinner">
     <svg>
-      <use href="${icons}_icon-loader"></use>
+      <use href="${icons}#icon-loader"></use>
     </svg>
   </div>`;
 
@@ -74,7 +74,7 @@ export default class View {
     <div class="error">
             <div>
               <svg>
-                <use href="${icons}_icon-alert- 
+                <use href="${icons}#icon-alert- 
                 triangle"></use>
               </svg>
             </div>
@@ -90,7 +90,7 @@ export default class View {
     <div class="message">
             <div>
               <svg>
-                <use href="${icons}_icon-smile"></use>
+                <use href="${icons}#icon-smile"></use>
               </svg>
             </div>
             <p>${message}</p>
