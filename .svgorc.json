@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    {
+      "name": "preset-default"
+    },
+    {
+      "name": "cleanupIDs",
+      "params": {
+        "prefix": "prefix-"
+      }
+    }
+  ]
+}
