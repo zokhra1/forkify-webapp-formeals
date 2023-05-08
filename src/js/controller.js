@@ -11,6 +11,7 @@ import addRecipeView from './views/addRecipeView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+
 import { async } from 'regenerator-runtime';
 
 if (module.hot) {
@@ -27,9 +28,9 @@ const controlRecipes = async function () {
     recipeView.renderSpinner();
 
     // 0) Update results view to mark selected search result
-    resultsView.update(model.getSearchResultsPage());
+    resultsView.render(model.getSearchResultsPage());
     //
-    bookmarksView.update(model.state.bookmarks);
+    bookmarksView.render(model.state.bookmarks);
 
     // 1) Loading recipe
     await model.loadRecipe(id);
@@ -93,6 +94,10 @@ const controlAddBookmark = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
+};
+
 const controlAddRecipe = async function (newRecipe) {
   try {
     //show loading spinner
@@ -123,17 +128,13 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application!');
-};
-
 const init = function () {
+  // bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 init();

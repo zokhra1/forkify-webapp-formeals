@@ -3,7 +3,7 @@ import View from './view.js';
 // import icons from '../img/icons.svg'; // Parcel 1
 import icons from 'url:../../img/icons.svg'; // Parcel 2
 
-import { fracty } from 'fracty';
+import fracty from 'fracty';
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
@@ -97,7 +97,7 @@ class RecipeView extends View {
         <div class="recipe__ingredients">
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
-    ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
+    ${this._data.ingredients.map(this._generateMarkupIngredients).join('')}
           
         </div>
 
@@ -122,7 +122,7 @@ class RecipeView extends View {
           </a>
         </div>`;
   }
-  _generateMarkupIngredient(ing) {
+  _generateMarkupIngredients(ing) {
     return ` 
    <li class="recipe__ingredient">
   <svg class="recipe__icon">
